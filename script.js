@@ -43,8 +43,7 @@ let generateCard = (data) => {
         ${pokeName}
       </h2>
       <div class="types">
-        <span>type 1</span>
-        <span>type 2</span>
+
       </div>
       <div class="stats">
         <div>
@@ -61,7 +60,18 @@ let generateCard = (data) => {
         </div>
       </div>
   `;
-}
+  appendTypes(data.types);
+};
+
+let appendTypes = (types) => {
+  // console.log(types);
+  types.forEach(item => {
+    let span = document.createElement("SPAN");
+    span.textContent = item.type.name;
+    // console.log(span);
+    document.querySelector(".types").appendChild(span);
+  })
+};
 
 btn.addEventListener("click", getPokeData);
 window.addEventListener("load", getPokeData);
