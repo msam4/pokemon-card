@@ -21,5 +21,47 @@ let getPokeData = () => {
     });
 };
 
+// Generate Card
+
+let generateCard = (data) => {
+  // Get necessary data from json and assign to the correct variables
+  console.log(data);
+  const hp = data.stats[0].base_stat;
+  const imgSrc = data.sprites.other.dream_world.front_default;
+  const pokeName = data.name;
+  const statAttack = data.stats[1].base_stat;
+  const statDefense = data.stats[2].base_stat;
+  const statSpeed = data.stats[5].base_stat;
+
+  card.innerHTML = `
+      <p class="hp">
+        <span>HP</span>
+          ${hp}
+      </p>
+      <img src="${imgSrc}" alt="${pokeName}">
+      <h2 class="poke-name">
+        ${pokeName}
+      </h2>
+      <div class="types">
+        <span>type 1</span>
+        <span>type 2</span>
+      </div>
+      <div class="stats">
+        <div>
+          <h3>${statAttack}</h3>
+          <p>Attack</p>
+        </div>
+        <div>
+          <h3>${statDefense}</h3>
+          <p>Defense</p>
+        </div>
+        <div>
+          <h3>${statSpeed}</h3>
+          <p>Speed</p>
+        </div>
+      </div>
+  `;
+}
+
 btn.addEventListener("click", getPokeData);
 window.addEventListener("load", getPokeData);
