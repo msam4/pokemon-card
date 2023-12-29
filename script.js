@@ -66,7 +66,6 @@ let generateCard = (data) => {
         ${pokeName}
       </h2>
       <div class="types">
-
       </div>
       <div class="stats">
         <div>
